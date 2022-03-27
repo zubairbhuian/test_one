@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:test_one/const/app_color.dart';
-import 'package:test_one/pages/home.dart';
+
+import 'home.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -14,10 +15,9 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Timer(
-        const Duration(seconds: 5),
+        const Duration(seconds: 3),
         () => Navigator.push(
             context, MaterialPageRoute(builder: (_) => const HomeScreen())));
   }
@@ -26,12 +26,14 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Scaffold(
-          backgroundColor: AppColors.primary_light_color,
+          backgroundColor: AppColors.light_color,
           body: Center(
             child: CircularProgressIndicator(
               backgroundColor: Colors.white,
-              strokeWidth: 5,
+              valueColor: AlwaysStoppedAnimation(AppColors.danger_color),
               semanticsLabel: 'Linear progress indicator',
+              strokeWidth: 5,
+              // value: .3,
             ),
           )),
     );

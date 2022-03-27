@@ -16,7 +16,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.purple),
-      home: const SplashScreen(),
+      home:  SplashScreen(),
     );
   }
 }
