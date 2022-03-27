@@ -7,9 +7,11 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          body: Container(
-            color: Colors.blueGrey,
-        child: const Text("every thing id fine"),
+          body: Center(
+        child: Container(
+          color: Colors.blueGrey,
+          child: const Text("every thing id fine"),
+        ),
       )),
     );
   }
