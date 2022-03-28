@@ -24,21 +24,12 @@ class _TabOneState extends State<TabOne> {
         ),
         Container(
           color: const Color.fromARGB(255, 179, 126, 240),
+          child: Column(children: [
+            Row(
+              children: const [],
+            )
+          ]),
         ),
-        Column(
-          children: [
-            Container(
-              color: Colors.red,
-              width: 100,
-              height: 1000,
-            ),
-            Container(
-              color: Colors.red,
-              width: 100,
-              height: 100,
-            ),
-          ],
-        )
       ],
     );
   }

@@ -20,8 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Scaffold(
           drawer: Drawer(
             child: ListView(
-              children: const <Widget>[
-                DrawerHeader(
+              children: <Widget>[
+                const DrawerHeader(
                   decoration: BoxDecoration(
                     color: AppColors.primary_color,
                   ),
@@ -34,16 +34,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 ListTile(
-                  leading: Icon(Icons.message),
-                  title: Text('Messages'),
+                  leading: const Icon(Icons.message),
+                  title: const Text('Messages'),
+                  onTap: () {},
                 ),
                 ListTile(
-                  leading: Icon(Icons.account_circle),
-                  title: Text('Profile'),
+                  leading: const Icon(Icons.account_circle),
+                  title: const Text('Profile'),
+                  onTap: () {},
                 ),
                 ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text('Settings'),
+                  leading: const Icon(Icons.settings),
+                  title: const Text('Settings'),
+                  onTap: () {},
                 ),
               ],
             ),
