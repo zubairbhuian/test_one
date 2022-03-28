@@ -10,11 +10,36 @@ class TabOne extends StatefulWidget {
 class _TabOneState extends State<TabOne> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'This is tab1',
-        style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-      ),
+    return ListView(
+      children: [
+        Container(
+          height: 250,
+          color: const Color.fromARGB(255, 179, 126, 240),
+          child: const Center(
+              child: Text(
+            "This is some demo text",
+            style: TextStyle(
+                color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+          )),
+        ),
+        Container(
+          color: const Color.fromARGB(255, 179, 126, 240),
+        ),
+        Column(
+          children: [
+            Container(
+              color: Colors.red,
+              width: 100,
+              height: 1000,
+            ),
+            Container(
+              color: Colors.red,
+              width: 100,
+              height: 100,
+            ),
+          ],
+        )
+      ],
     );
   }
 }
