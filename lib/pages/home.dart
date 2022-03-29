@@ -56,9 +56,11 @@ class _HomeScreenState extends State<HomeScreen> {
             title: const Text('My AppBar'),
             leading: Container(child: const Text('')),
             actions: [
+              //  !Search Icon
               IconButton(
                   onPressed: () {
-                    // showSearch(context: context, delegate: MysearchDelegata());
+                    showSearch(
+                        context: context, delegate: CustromSearchDelegate());
                   },
                   icon: const Icon(Icons.search)),
               Builder(builder: (context) {
@@ -82,16 +84,78 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-// class MysearchDelegate extends SearchDelegate {
-//   @override
-//   Widget? buildLeading(BuildContext context) =>
-//       IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back));
-//   @override
-//   List<Widget>? buildActions(BuildContext context) => [
-//     IconButton(onPressed: () {}, icon: const Icon(Icons.clear))
-//   ];
-//   @override
-//   Widget buildResults(BuildContext context) => Container();
-//   @override
-//   Widget buildSuggestions(BuildContext context) => Container();
-// }
+class CustromSearchDelegate extends SearchDelegate {
+// *SearchTerms
+  List<String> searchTerms = [
+    'Zubair',
+    'Riyaz Khan',
+    'Dr. Tarek',
+    'Moyaz',
+    'Aburayhan',
+  ];
+// *buildActions
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            if (query.isEmpty) {
+              close(context, null);
+            } else {
+              query = '';
+            }
+          },
+          icon: const Icon(Icons.clear))
+    ];
+  }
+
+// *buildLeading
+  @override
+  buildLeading(BuildContext context) => IconButton(
+      onPressed: () {
+        close(context, null);
+      },
+      icon: const Icon(Icons.arrow_back));
+// *buildResults
+  @override
+  Widget buildResults(BuildContext context) {
+    List<String> matchQuri = [];
+    for (var fruit in searchTerms) {
+      if (fruit.toLowerCase().contains(query.toLowerCase())) {
+        matchQuri.add(fruit);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuri.length,
+      itemBuilder: (context, index) {
+        var result = matchQuri[index];
+        return ListTile(
+          title: Text(result),
+        );
+      },
+    );
+  }
+
+// *buildSuggestions
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    List<String> matchQuri = [];
+    for (var fruit in searchTerms) {
+      if (fruit.toLowerCase().contains(query.toLowerCase())) {
+        matchQuri.add(fruit);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuri.length,
+      itemBuilder: (context, index) {
+        var result = matchQuri[index];
+        return ListTile(
+            title: Text(result),
+            onTap: () {
+              query = result;
+              showResults(context);
+            });
+      },
+    );
+  }
+}
