@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_one/const/app_color.dart';
 
 class TabOne extends StatefulWidget {
   const TabOne({Key? key}) : super(key: key);
@@ -24,11 +25,302 @@ class _TabOneState extends State<TabOne> {
         ),
         Container(
           color: const Color.fromARGB(255, 179, 126, 240),
-          child: Column(children: [
-            Row(
-              children: const [],
-            )
-          ]),
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 25, left: 18, right: 18),
+            child: Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                          color: AppColors.primary_color,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.add_a_photo,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            "Abb photo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                          color: AppColors.primary_color,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.add_a_photo,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            "Abb photo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                          color: AppColors.primary_color,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.add_a_photo,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            "Abb photo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                          color: AppColors.primary_color,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.add_a_photo,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            "Abb photo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                          color: AppColors.primary_color,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.add_a_photo,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            "Abb photo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                          color: AppColors.primary_color,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.add_a_photo,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            "Abb photo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                          color: AppColors.primary_color,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.add_a_photo,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            "Abb photo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                          color: AppColors.primary_color,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.add_a_photo,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            "Abb photo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: const BoxDecoration(
+                          color: AppColors.primary_color,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.add_a_photo,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            "Abb photo",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ]),
+          ),
         ),
       ],
     );

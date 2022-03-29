@@ -18,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
       length: 3,
       child: SafeArea(
         child: Scaffold(
+          backgroundColor: const Color.fromARGB(255, 179, 126, 240),
           drawer: Drawer(
             child: ListView(
               children: <Widget>[
@@ -55,7 +56,11 @@ class _HomeScreenState extends State<HomeScreen> {
             title: const Text('My AppBar'),
             leading: Container(child: const Text('')),
             actions: [
-              IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+              IconButton(
+                  onPressed: () {
+                    // showSearch(context: context, delegate: MysearchDelegata());
+                  },
+                  icon: const Icon(Icons.search)),
               Builder(builder: (context) {
                 return IconButton(
                     onPressed: () {
@@ -76,3 +81,17 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+// class MysearchDelegate extends SearchDelegate {
+//   @override
+//   Widget? buildLeading(BuildContext context) =>
+//       IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back));
+//   @override
+//   List<Widget>? buildActions(BuildContext context) => [
+//     IconButton(onPressed: () {}, icon: const Icon(Icons.clear))
+//   ];
+//   @override
+//   Widget buildResults(BuildContext context) => Container();
+//   @override
+//   Widget buildSuggestions(BuildContext context) => Container();
+// }
