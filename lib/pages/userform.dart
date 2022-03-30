@@ -4,10 +4,11 @@ class UserForm extends StatelessWidget {
   const UserForm({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    // !Form
+    // !Form Controler
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+    final TextEditingController _nameController = TextEditingController();
     final TextEditingController _emailController = TextEditingController();
-    final TextEditingController _passController = TextEditingController();
+    final TextEditingController _phoneController = TextEditingController();
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: const Text("User Form")),
       body: Form(
@@ -18,15 +19,14 @@ class UserForm extends StatelessWidget {
             children: [
               //  !Name
               TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                controller: _emailController,
+                keyboardType: TextInputType.name,
+                controller: _nameController,
                 decoration: const InputDecoration(
-                    border: OutlineInputBorder(), label: Text("Email")),
+                    border: OutlineInputBorder(), label: Text("Name")),
                 validator: (value) {
                   if (value!.isEmpty ||
-                      !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}')
-                          .hasMatch(value)) {
-                    return "Enter Valide Email";
+                      !RegExp(r'^[a-z A-Z,.\-]+$').hasMatch(value)) {
+                    return "Enter Name";
                   } else {
                     return null;
                   }
@@ -39,7 +39,7 @@ class UserForm extends StatelessWidget {
               ),
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
-                controller: _passController,
+                controller: _emailController,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(), label: Text("Email")),
                 validator: (value) {
@@ -57,15 +57,15 @@ class UserForm extends StatelessWidget {
                 height: 15,
               ),
               TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                controller: _passController,
+                keyboardType: TextInputType.phone,
+                controller: _phoneController,
                 decoration: const InputDecoration(
-                    border: OutlineInputBorder(), label: Text("Email")),
+                    border: OutlineInputBorder(), label: Text("Phone Number")),
                 validator: (value) {
                   if (value!.isEmpty ||
-                      !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}')
+                      !RegExp(r'^(?:(?:\+|00)88|01)?\d{11}$')
                           .hasMatch(value)) {
-                    return "Enter Valide Email";
+                    return "Enter Bangladeshi Phone Number";
                   } else {
                     return null;
                   }
