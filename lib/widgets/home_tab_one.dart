@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_one/const/app_color.dart';
+import 'package:test_one/pages/userform.dart';
 
 class TabOne extends StatefulWidget {
   const TabOne({Key? key}) : super(key: key);
@@ -13,10 +14,9 @@ class _TabOneState extends State<TabOne> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        Container(
+        const SizedBox(
           height: 250,
-          color: const Color.fromARGB(255, 179, 126, 240),
-          child: const Center(
+          child: Center(
               child: Text(
             "This is some demo text",
             style: TextStyle(
@@ -32,7 +32,10 @@ class _TabOneState extends State<TabOne> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => const UserForm()));
+                    },
                     child: Container(
                       height: 100,
                       width: 100,
