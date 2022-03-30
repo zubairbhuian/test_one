@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           appBar: AppBar(
             title: const Text('My AppBar'),
-            leading: Container(child: const Text('')),
+            leading: const Text(''),
             actions: [
               //  !Search Icon
               IconButton(
