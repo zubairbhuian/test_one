@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
       length: 3,
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: const Color.fromARGB(255, 179, 126, 240),
+          backgroundColor:AppColors.primary_light_color,
           drawer: Drawer(
             child: ListView(
               children: <Widget>[

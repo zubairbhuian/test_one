@@ -24,7 +24,7 @@ class _TabOneState extends State<TabOne> {
           )),
         ),
         Container(
-          color: const Color.fromARGB(255, 179, 126, 240),
+          color: AppColors.primary_light_color,
           child: Padding(
             padding: const EdgeInsets.only(bottom: 25, left: 18, right: 18),
             child: Column(children: [
