@@ -10,6 +10,13 @@ class UserForm extends StatefulWidget {
 class _UserFormState extends State<UserForm> {
   //  !date
   DateTime date = DateTime.now();
+  // !
+  String selectedItem = 'Male';
+  List<String> items = [
+    'Male',
+    'Female',
+    'Others',
+  ];
   // !Form Controler
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
@@ -79,7 +86,27 @@ class _UserFormState extends State<UserForm> {
                   }
                 },
               ),
+              const SizedBox(
+                height: 15,
+              ),
               //  !Selection
+              DropdownButtonFormField<String>(
+                value: selectedItem,
+                icon: const Icon(Icons.arrow_downward),
+                decoration: const InputDecoration(border: OutlineInputBorder()),
+                elevation: 16,
+                onChanged: (String? newValue) {
+                  setState(() {
+                    selectedItem = newValue!;
+                  });
+                },
+                items: items.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),
               //  !Date Picker
               const SizedBox(
                 height: 15,
@@ -119,6 +146,9 @@ class _UserFormState extends State<UserForm> {
                 // },
               ),
               //  !Image Upload
+              const SizedBox(
+                height: 15,
+              ),
               ElevatedButton(
                   onPressed: () {}, child: const Icon(Icons.add_a_photo)),
               //  !Submit
