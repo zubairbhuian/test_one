@@ -16,6 +16,7 @@ class _UserFormState extends State<UserForm> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,23 +82,40 @@ class _UserFormState extends State<UserForm> {
               ),
               //  !Selection
               //  !Date Picker
-              Text('${date.year}/${date.month}/${date.day}'),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
-              ElevatedButton(
-                  onPressed: () async {
-                    DateTime? newDate = await showDatePicker(
-                        context: context,
-                        initialDate: date,
-                        firstDate: DateTime(2021),
-                        lastDate: DateTime(2023));
-                    // if 'Cencel'=>null
-                    if (newDate == null) return;
-                    //if 'Ok'=>Datetime
-                    setState(() => date = newDate);
-                  },
-                  child: const Text('Take date')),
+              TextFormField(
+                // initialValue: '${date.day}/${date.month}/${date.year}',
+                // readOnly: true,
+                controller: _dateController,
+                decoration: InputDecoration(
+                    hintText: '${date.day}/${date.month}/${date.year}',
+                    border: const OutlineInputBorder(),
+                    // label: const Text("Date"),
+                    suffixIcon: InkWell(
+                        child: const Icon(Icons.date_range),
+                        onTap: () async {
+                          DateTime? newDate = await showDatePicker(
+                              context: context,
+                              initialDate: date,
+                              firstDate: DateTime(2021),
+                              lastDate: DateTime(2023));
+                          // if 'Cencel'=>null
+                          if (newDate == null) return;
+                          //if 'Ok'=>Datetime
+                          setState(() => date = newDate);
+                          print(_dateController);
+                        })),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "Enter Date";
+                  } else {
+                    return null;
+                  }
+                },
+              ),
+              Text('${date.day}/${date.month}/${date.year}'),
               //  !Image Upload
               //  !Submit
               const SizedBox(height: 20),
