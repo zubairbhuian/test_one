@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class UserForm extends StatefulWidget {
   const UserForm({Key? key}) : super(key: key);
@@ -8,16 +9,21 @@ class UserForm extends StatefulWidget {
 }
 
 class _UserFormState extends State<UserForm> {
-  //  !date
+  //  ?date
   DateTime date = DateTime.now();
-  // !
+  // ?Dropdown
   String selectedItem = 'Male';
   List<String> items = [
     'Male',
     'Female',
     'Others',
   ];
-  // !Form Controler
+  // ?Image Picker
+  Future pickImage() async {
+    await ImagePicker().pickImage(source: ImageSource.gallery);
+  }
+
+  // ?Form Controler
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -34,7 +40,7 @@ class _UserFormState extends State<UserForm> {
             padding:
                 const EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 20),
             children: [
-              //  !Name
+              //  ?Name
               TextFormField(
                 keyboardType: TextInputType.name,
                 controller: _nameController,
@@ -49,7 +55,7 @@ class _UserFormState extends State<UserForm> {
                   }
                 },
               ),
-              // !Email
+              // ?Email
               const SizedBox(
                 height: 15,
               ),
@@ -68,7 +74,7 @@ class _UserFormState extends State<UserForm> {
                   }
                 },
               ),
-              //  !Contract
+              //  ?Contract
               const SizedBox(
                 height: 15,
               ),
@@ -89,7 +95,7 @@ class _UserFormState extends State<UserForm> {
               const SizedBox(
                 height: 15,
               ),
-              //  !Selection
+              //  ?Selection
               DropdownButtonFormField<String>(
                 value: selectedItem,
                 icon: const Icon(Icons.arrow_downward),
@@ -108,7 +114,7 @@ class _UserFormState extends State<UserForm> {
                   );
                 }).toList(),
               ),
-              //  !Date Picker
+              //  ?Date Picker
               const SizedBox(
                 height: 15,
               ),
@@ -146,7 +152,7 @@ class _UserFormState extends State<UserForm> {
                 //   }
                 // },
               ),
-              //  !Image Upload
+              //  ?Image Upload
               const SizedBox(
                 height: 15,
               ),
@@ -156,12 +162,12 @@ class _UserFormState extends State<UserForm> {
                   style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.only(
                           left: 20, right: 20, top: 10, bottom: 10)),
-                  onPressed: () {},
+                  onPressed: pickImage,
                   icon: const Text("Add Photo"),
                   label: const Icon(Icons.file_upload_outlined),
                 ),
               ),
-              //  !Submit
+              //  ?Submit
               const SizedBox(height: 30),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
