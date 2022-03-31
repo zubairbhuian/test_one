@@ -10,7 +10,6 @@ class UserForm extends StatefulWidget {
 class _UserFormState extends State<UserForm> {
   //  !date
   DateTime date = DateTime.now();
-
   // !Form Controler
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
@@ -87,7 +86,8 @@ class _UserFormState extends State<UserForm> {
               ),
               TextFormField(
                 // initialValue: '${date.day}/${date.month}/${date.year}',
-                // readOnly: true,
+                readOnly: true,
+
                 controller: _dateController,
                 decoration: InputDecoration(
                     hintText: '${date.day}/${date.month}/${date.year}',
@@ -104,19 +104,23 @@ class _UserFormState extends State<UserForm> {
                           // if 'Cencel'=>null
                           if (newDate == null) return;
                           //if 'Ok'=>Datetime
-                          setState(() => date = newDate);
-                          print(_dateController);
+                          setState(() {
+                            date = newDate;
+                            // _dateController = date;
+                            // print(_dateController);
+                          });
                         })),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Enter Date";
-                  } else {
-                    return null;
-                  }
-                },
+                // validator: (value) {
+                //   if (value!.isEmpty) {
+                //     return "Enter Date";
+                //   } else {
+                //     return null;
+                //   }
+                // },
               ),
-              Text('${date.day}/${date.month}/${date.year}'),
               //  !Image Upload
+              ElevatedButton(
+                  onPressed: () {}, child: const Icon(Icons.add_a_photo)),
               //  !Submit
               const SizedBox(height: 20),
               ElevatedButton(
