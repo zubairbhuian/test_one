@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 
-class UserForm extends StatelessWidget {
+class UserForm extends StatefulWidget {
   const UserForm({Key? key}) : super(key: key);
+
+  @override
+  State<UserForm> createState() => _UserFormState();
+}
+
+class _UserFormState extends State<UserForm> {
+  //  !date
+  DateTime date = DateTime.now();
+
+  // !Form Controler
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    // !Form Controler
-    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    final TextEditingController _nameController = TextEditingController();
-    final TextEditingController _emailController = TextEditingController();
-    final TextEditingController _phoneController = TextEditingController();
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: const Text("User Form")),
       body: Form(
@@ -63,8 +72,7 @@ class UserForm extends StatelessWidget {
                     border: OutlineInputBorder(), label: Text("Phone Number")),
                 validator: (value) {
                   if (value!.isEmpty ||
-                      !RegExp(r'^(?:(?:\+|00)88|01)?\d{11}$')
-                          .hasMatch(value)) {
+                      !RegExp(r'^(?:(?:\+|00)88|01)?\d{11}$').hasMatch(value)) {
                     return "Enter Bangladeshi Phone Number";
                   } else {
                     return null;
@@ -73,6 +81,23 @@ class UserForm extends StatelessWidget {
               ),
               //  !Selection
               //  !Date Picker
+              Text('${date.year}/${date.month}/${date.day}'),
+              const SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                  onPressed: () async {
+                    DateTime? newDate = await showDatePicker(
+                        context: context,
+                        initialDate: date,
+                        firstDate: DateTime(2021),
+                        lastDate: DateTime(2023));
+                    // if 'Cencel'=>null
+                    if (newDate == null) return;
+                    //if 'Ok'=>Datetime
+                    setState(() => date = newDate);
+                  },
+                  child: const Text('Take date')),
               //  !Image Upload
               //  !Submit
               const SizedBox(height: 20),
