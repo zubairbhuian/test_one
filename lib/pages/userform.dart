@@ -26,6 +26,7 @@ class _UserFormState extends State<UserForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 240, 227, 255),
       appBar: AppBar(centerTitle: true, title: const Text("User Form")),
       body: Form(
           key: formKey,
@@ -48,7 +49,6 @@ class _UserFormState extends State<UserForm> {
                   }
                 },
               ),
-
               // !Email
               const SizedBox(
                 height: 15,
@@ -93,6 +93,7 @@ class _UserFormState extends State<UserForm> {
               DropdownButtonFormField<String>(
                 value: selectedItem,
                 icon: const Icon(Icons.arrow_downward),
+                style: TextStyle(color: Colors.grey[700]),
                 decoration: const InputDecoration(border: OutlineInputBorder()),
                 elevation: 16,
                 onChanged: (String? newValue) {
@@ -149,11 +150,23 @@ class _UserFormState extends State<UserForm> {
               const SizedBox(
                 height: 15,
               ),
-              ElevatedButton(
-                  onPressed: () {}, child: const Icon(Icons.add_a_photo)),
+              Container(
+                alignment: Alignment.topLeft,
+                child: OutlinedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20, top: 10, bottom: 10)),
+                  onPressed: () {},
+                  icon: const Text("Add Photo"),
+                  label: const Icon(Icons.file_upload_outlined),
+                ),
+              ),
               //  !Submit
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.all(15),
+                      maximumSize: const Size(220, 80)),
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       // Process data.
