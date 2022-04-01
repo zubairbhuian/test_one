@@ -32,7 +32,6 @@ class _UserFormState extends State<UserForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 240, 227, 255),
       appBar: AppBar(centerTitle: true, title: const Text("User Form")),
       body: Form(
           key: formKey,
